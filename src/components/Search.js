@@ -10,23 +10,23 @@ const DropDown = ({ toggle, sortBy, orderBy, onSortByChange, onOrderByChange }) 
             <div>
                 <div onClick={() => onSortByChange("petName")}
                 role="menuitem" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer">
-                    Pet Name
+                    Pet Name {sortBy === "petName" && <BiCheck />}
                 </div>
                 <div onClick={() => onSortByChange("ownerName")}
                 role="menuitem" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer">
-                    Owner Name
+                    Owner Name {sortBy === "ownerName" && <BiCheck />}
                 </div>
-                <div onClick={() => onSortByChange("Date")}
+                <div onClick={() => onSortByChange("aptDate")}
                 role="menuitem" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer">
-                    Date
+                    Date {sortBy === "aptDate" && <BiCheck />}
                 </div>
                 <div onClick={() => onOrderByChange("asc")}
                 role="menuitem" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer">
-                    Ascending
+                    Ascending {orderBy === "asc" && <BiCheck />}
                 </div>
                 <div onClick={() => onOrderByChange("desc")}
                 role="menuitem" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer">
-                    Descending
+                    Descending {orderBy === "desc" && <BiCheck />}
                 </div>
             </div>
         </div>

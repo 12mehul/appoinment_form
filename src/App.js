@@ -11,7 +11,7 @@ function App() {
   let [appointmentList, setAppointmentList] = useState([]);
   const [nameSearch, setNameSearch] = useState("");
   let [sortBy, setSortBy] = useState("petName");
-  let [orderBy, setOrderBy] = useState("desc");
+  let [orderBy, setOrderBy] = useState("asc");
 
   const filteredAppointments = appointmentList.filter((item) => {
     return (
@@ -39,7 +39,14 @@ function App() {
       <h1 className="text-5xl">
         <BiArchive className="inline-block text-red-400 align-top" /> Your Appointments
       </h1>
-      <AddAppointment />
+      <AddAppointment 
+        onSendAppointment={(myAppointment) => 
+        setAppointmentList([...appointmentList, myAppointment])
+        }
+        lastId={appointmentList.reduce(
+          (max, item) => (Number(item.id) > max ? Number(item.id) : max), 0
+        )}
+        />
       <Search  
         nameSearch = {nameSearch} 
         setNameSearch={(newSearch) => setNameSearch(newSearch)} 
